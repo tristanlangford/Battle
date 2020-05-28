@@ -3,7 +3,7 @@ require 'sinatra'
 
 class Battle < Sinatra::Base
 
-  enable :session
+  enable :sessions
 
   get "/" do
     "Testing infrastructure working!"
@@ -13,6 +13,11 @@ class Battle < Sinatra::Base
   post "/names" do
     session[:player1] = params[:player1]
     session[:player2] = params[:player2]
+    redirect "/play"
+  end
+
+  get "/play" do
+
     erb(:play)
   end
 
