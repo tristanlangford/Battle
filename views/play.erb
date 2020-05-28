@@ -1,3 +1,7 @@
 <p> <%= session[:player1] %> Vs <%= session[:player2] %> </p>
 
 <p> Player 2 HP = <%= @player2_hp %> </p>
+
+<form action="/attack" method=post>
+<button type="button" name="attack">Attack</button>
+</form>
