@@ -3,7 +3,7 @@ require 'sinatra'
 
 class Battle < Sinatra::Base
 
-  # set :root, File.dirname(__FILE__)
+  enable :session
 
   get "/" do
     "Testing infrastructure working!"
@@ -11,8 +11,8 @@ class Battle < Sinatra::Base
   end
 
   post "/names" do
-    @player1 = params[:player1]
-    @player2 = params[:player2]
+    session[:player1] = params[:player1]
+    session[:player2] = params[:player2]
     erb(:play)
   end
 
